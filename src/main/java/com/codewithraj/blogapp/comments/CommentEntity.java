@@ -4,7 +4,6 @@ import com.codewithraj.blogapp.articles.ArticleEntity;
 import com.codewithraj.blogapp.users.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import org.apache.tomcat.util.buf.UEncoder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
@@ -15,7 +14,9 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+@Builder
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CommentEntity {
     @Id

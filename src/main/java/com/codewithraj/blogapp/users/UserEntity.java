@@ -2,17 +2,17 @@ package com.codewithraj.blogapp.users;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.apache.tomcat.util.digester.ObjectCreateRule;
-import org.hibernate.Hibernate;
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
-import java.util.Objects;
 
 @Entity(name = "users")
 @Getter
 @Setter
 @ToString
+@Builder
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserEntity {
     @Id
@@ -29,11 +29,11 @@ public class UserEntity {
     private String email;
 
     @Column(nullable = true)
-    @NonNull
+    @Nullable
     private String bio;
 
     @Column(nullable = true)
-    @NonNull
+    @Nullable
     private String image;
 
 }

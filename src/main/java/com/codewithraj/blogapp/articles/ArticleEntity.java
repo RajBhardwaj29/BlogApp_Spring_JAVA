@@ -12,8 +12,10 @@ import java.util.Date;
 @Entity(name = "articles")
 @Getter
 @Setter
+@Builder
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ArticleEntity {
     @Id
@@ -31,7 +33,7 @@ public class ArticleEntity {
     @Nullable
     private String subtitle;
 
-    @Nullable
+    @NonNull
     private String body;
 
     @CreatedDate
