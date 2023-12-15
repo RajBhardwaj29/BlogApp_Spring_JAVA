@@ -1,22 +1,22 @@
 package com.codewithraj.blogapp.users;
 
 import com.codewithraj.blogapp.users.dtos.CreateUserRequest;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
     private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
 
-    public UsersService(UserRepository userRepository){
+    public UsersService(UserRepository userRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
+        this.modelMapper = modelMapper;
     }
-    
-    public UserEntity createUser(CreateUserRequest u){
-        var newUser = UserEntity.builder()
-                .username(u.getUsername())
-                .email(u.getEmail())
-                .build();
 
+    public UserEntity createUser(CreateUserRequest u){
+        UserEntity newUser = modelMapper.map(u, UserEntity.class);
+        // TODO: encrypt and save password as well
         return userRepository.save(newUser);
     }
 

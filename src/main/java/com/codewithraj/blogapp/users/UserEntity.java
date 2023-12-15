@@ -10,7 +10,6 @@ import org.springframework.lang.Nullable;
 @Getter
 @Setter
 @ToString
-@Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -28,11 +27,11 @@ public class UserEntity {
     @NonNull
     private String email;
 
-    @Column(nullable = true)
+    @Column()
     @Nullable
     private String bio;
 
-    @Column(nullable = true)
+    @Column()
     @Nullable
     private String image;
 
